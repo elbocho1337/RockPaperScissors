@@ -12,7 +12,95 @@
 
 
     <script>
-        alert("Hello World!")
+
+        let computerSelection = 3;
+        let playerSelection = 3
+
+        let computerScore = 0
+        let playerScore = 0
+
+
+
+        function getPlayerChoise() {
+            let playerInput = prompt("Choose ROCK, PAPER, SCISSORS").toLowerCase();
+            console.log(playerInput)
+
+            if (playerInput == "rock") {
+                playerSelection = 0
+            }
+            else if (playerInput == "paper") {
+                playerSelection = 1
+            }
+            else if (playerInput == "scissors") {
+                playerSelection = 2
+            }
+            else {
+                console.warn("RETRY");
+            }
+        }
+
+        function getComputerChoise() {
+            compChoise = Math.floor(Math.random() * 3);
+            console.log(compChoise);
+            if (compChoise == 0) {
+                console.log("Computer is ROCK")
+                computerSelection = 0
+            }
+            else if (compChoise == 1) {
+                console.log("Computer is PAPER")
+                computerSelection = 1
+            }
+            else {
+                console.log("Computer is SCISSORS")
+                computerSelection = 2
+            }
+        }
+
+        function playRound() {
+            getPlayerChoise();
+            getComputerChoise()
+
+            if (playerSelection == 0 && computerSelection == 2) {
+                console.warn("PLAYER WON");
+                playerScore++;
+            }
+            else if (playerSelection == 1 && computerSelection == 0) {
+                console.warn("PLAYER WON");
+                playerScore++;
+            }
+            else if (playerSelection == 2 && computerSelection == 1) {
+                console.warn("PLAYER WON");
+                playerScore++;
+            }
+            else if (playerSelection == computerSelection) {
+                console.warn("DRAW");
+                computerScore++;
+            }
+            else {
+                console.warn("COMPUTER WON");
+            }
+        }
+
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                playRound()
+                if (i == 4) {
+                    console.error("--------------------------------------");
+                    if (playerScore > computerScore) {
+                        console.warn("GAME OVER, PLAYER WON")
+                    }
+                    else if (playerScore < computerScore) {
+                        console.warn("GAME OVER, COMPUTER WON");
+                    }
+                    else {
+                        console.warn("GAME OVER, DRAW")
+                    }
+                }
+            }
+        }
+
+
     </script>
 
 </body>
