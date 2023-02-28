@@ -22,16 +22,16 @@
 
 
         function getPlayerChoise() {
-            let playerInput = prompt("Choose ROCK, PAPER, SCISSORS").toLowerCase();
+            let playerInput = prompt("Type ROCK, PAPER, SCISSORS, or 1, 2, 3.").toLowerCase();
             console.log(playerInput)
 
-            if (playerInput == "rock") {
+            if (playerInput == "rock" || playerInput == "1") {
                 playerSelection = 0
             }
-            else if (playerInput == "paper") {
+            else if (playerInput == "paper" || playerInput == "2") {
                 playerSelection = 1
             }
-            else if (playerInput == "scissors") {
+            else if (playerInput == "scissors" || playerInput == "3") {
                 playerSelection = 2
             }
             else {
@@ -96,6 +96,7 @@
                     else {
                         console.warn("GAME OVER, DRAW")
                     }
+                    console.error("--------------------------------------");
                 }
             }
         }
